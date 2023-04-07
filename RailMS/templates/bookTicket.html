@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% block title %}Book Ticket{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="/static/css/booktic.css">
+{% endblock style %}
+{% block body %}
+<div class="containerform">
+    <div class="title">Fill in the Details</div>
+    <div class="content">
+        <form method="post" action="/bookTicket">
+            {% csrf_token %}
+            <p>Passenger1</p>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Enter the Name</span>
+                    <input type="text" name="pass1name" placeholder="Ex. Sunny Yogendra Sharma" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Age (in years)</span>
+                    <input type="number" name="pass1age" placeholder="Ex. 19" max="150" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Berth Choice</span>
+                    <select name="pass1berth_opt">
+                        <option value="">Select Berth</option>
+                        <option value="su">SU</option>
+                        <option value="sl">SL</option>
+                        <option value="lb">LB</option>
+                        <option value="mb">MB</option>
+                        <option value="ub">UB</option>
+                    </select>
+                </div>
+            </div>
+            
+
+            <p>Passenger2</p>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Enter the Name</span>
+                    <input type="text" name="pass2name" placeholder="">
+                </div>
+                <div class="input-box">
+                    <span class="details">Age (in years)</span>
+                    <input type="number" name="pass2age" placeholder="" max="150" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Berth Choice</span>
+                    <select name="pass2berth_opt">
+                        <option value="">Select Berth</option>
+                        <option value="su">SU</option>
+                        <option value="sl">SL</option>
+                        <option value="lb">LB</option>
+                        <option value="mb">MB</option>
+                        <option value="ub">UB</option>
+                    </select>
+                </div>
+            </div>
+           
+
+            <p>Passenger3</p>
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Enter the Name</span>
+                    <input type="text" name="pass3name" placeholder="">
+                </div>
+                <div class="input-box">
+                    <span class="details">Age (in years)</span>
+                    <input type="number" name="pass3age" placeholder="" max="150" >
+                </div>
+                <div class="input-box">
+                    <span class="details">Berth Choice</span>
+                    <select name="pass3berth_opt">
+                        <option value="">Select Berth</option>
+                        <option value="su">SU</option>
+                        <option value="sl">SL</option>
+                        <option value="lb">LB</option>
+                        <option value="mb">MB</option>
+                        <option value="ub">UB</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-box">
+                <br><br>
+                <span class="details">Starting Point</span>
+                <select name="source">
+                    <option value="LTT">LTT-Lokmanya Tilak Terminus</option>
+                    <option value="BS">BS-Vasai</option>
+                    <option value="sl">SL</option>
+                    <option value="lb">LB</option>
+                    <option value="mb">MB</option>
+                    <option value="ub">UB</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <br><br>
+                <span class="details">Destination</span>
+                <select name="destination">
+                    <option value="LTT">LTT-Lokmanya Tilak Terminus</option>
+                    <option value="BO">BO-Borivali</option>
+                    <option value="sl">SL</option>
+                    <option value="lb">LB</option>
+                    <option value="mb">MB</option>
+                    <option value="ub">UB</option>
+                </select>
+            </div>
+            <div class="form-outline mb-4">
+                <br><br>
+                <label for="Date">Select the date of Journey</label>
+                <input type="date" name="dateJourney">
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Confirm Booking">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock body %}

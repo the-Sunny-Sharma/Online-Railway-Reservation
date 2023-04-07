@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}All Trains{% endblock title %}
+{% block body %}
+<div class="s006">
+    <form method="post" action="/pnr_result">
+      <fieldset>
+        <legend>View all available trains</legend>
+        <div class="inner-form">
+          <div class="input-field">
+            <legend>Click here to view the chart <a href="/static/pdf/Train_Number_Index.pdf">View Trains</a>.</legend>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+    
+{% endblock body %}

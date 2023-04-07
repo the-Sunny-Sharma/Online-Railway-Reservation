@@ -1,0 +1,19 @@
+{% comment %} {% extends 'base.html' %}
+{% block title %}YOUR TICKETS{% endblock title %}
+{% block body %}
+
+{% endblock body %} {% endcomment %}
+
+{# yonetim/templates/list.html #}
+{% load render_table from django_tables2 %}
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 
+'ticket/static/css/screen.css' %}" />
+    </head>
+    <body>
+        {% render_table istekler %}
+    </body>
+</html>

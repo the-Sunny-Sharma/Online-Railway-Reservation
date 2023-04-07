@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock title %}
+{% block body %}
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="booking-cta">
+                        <h1>Book Ticket</h1>
+                        <p>Wishing you Happy and Safe Journey</p>
+                    </div>
+                </div>
+                <div class="col-md-7 col-md-offset-1">
+                    <div class="booking-form">
+                        <form methpd='post' action='/'>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">From</span>
+                                            <div class="autocomplete form-control" >
+                                              <input id="myInput" type="text" name="source" placeholder="Source">
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">To</span>
+                                        <div class="autocomplete form-control" >
+                                            <input id="" type="text"  name="destination" placeholder="Destination">
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Date</span>
+                                        <input class="form-control" name="dateOfTravel" type="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Adults (18+)</span>
+                                        <select class="form-control" name="countAdult">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Children (0-17)</span>
+                                        <select class="form-control" name="countChild">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Travel class</span>
+                                        <select class="form-control" name="tClass">
+                                            <option value="">All Classes<option>
+                                            <option value="firstClass">AC First Class (1A)</option>
+                                            <option value="secondClass">AC 2 Tier (2A)</option>
+                                            <option value="thirdClass">AC 3 Tier (3A)</option>
+                                            <option value="sleeper">Sleeper (SL)<option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-btn">
+                                <input class="submit-btn" type="submit" value="Show Trains" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="carouselExampleCaptions" class="carousel slide my-5">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/img/image1.jfif" class="d-block w-100" alt="Image here">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>INDIAN RAILWAYS</h5>
+                <p>Journey with comfort, travel with Indian Railways</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/img/photo-1488998628026-a1a79746cdcd.jfif" class="d-block w-100" alt="Image here">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>IRCTC</h5>
+                <p>Safe journey, happy journey with Indian Railways</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/static/img/photo-1629449752979-a7528c9c9454.jfif" class="d-block w-100" alt="Image here">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>SYN RAILS</h5>
+                <p>Leaning out of the window, gazing at the countryside</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container">
+    <footer class="row row-cols-5 py-5 my-5 border-top">
+        <div class="col">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <p class="text-muted">© 2023 Universal College of Engineering</p>
+            <p>Department of Information Technology</p>
+        </div>
+        <div class="col">
+            <h5>SYN RAILS</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
+                <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact Us</a></li>
+                <li class="nav-item mb-2"><a href="https://www.irctc.co.in/" class="nav-link p-0 text-muted">IRCTC
+                        official</a></li>
+                <li class="nav-item mb-2"><a href="https://indianrailways.info/faq/" class="nav-link p-0 text-muted">FAQs</a></li>
+                <li class="nav-item mb-2"><a href="https://wr.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1" class="nav-link p-0 text-muted">About</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <h5>Services</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="/bookTicket" class="nav-link p-0 text-muted">Book Ticket</a></li>
+                <li class="nav-item mb-2"><a href="/view_ticket" class="nav-link p-0 text-muted">View Ticket</a></li>
+                <li class="nav-item mb-2"><a href="/cancel_ticket" class="nav-link p-0 text-muted">Cancel Ticket</a></li>
+                <li class="nav-item mb-2"><a href="/pnr_status" class="nav-link p-0 text-muted">PNR status</a></li>
+                <li class="nav-item mb-2"><a href="/view_schedule" class="nav-link p-0 text-muted">Train Schedule</a></li>
+                <li class="nav-item mb-2"><a href="/view_train" class="nav-link p-0 text-muted">Train Chart</a></li>
+
+            </ul>
+        </div>
+        <div class="col">
+            <h5>Refrences</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="https://www.irctc.co.in/nget/train-search" class="nav-link p-0 text-muted">IRCTC</a></li>
+                <li class="nav-item mb-2"><a href="https://getbootstrap.com/"
+                        class="nav-link p-0 text-muted">Bootstrap</a></li>
+                <li class="nav-item mb-2"><a href="https://www.makemytrip.com/railways/" class="nav-link p-0 text-muted">Make my Trip</a></li>
+                <li class="nav-item mb-2"><a href="https://www.ixigo.com/trains" class="nav-link p-0 text-muted">Ixigo Trains</a></li>
+                <li class="nav-item mb-2"><a href="https://unsplash.com/" class="nav-link p-0 text-muted">Unsplash</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script>
+    function autocomplete(inp, arr) {
+      var currentFocus;
+      inp.addEventListener("input", function(e) {
+          var a, b, i, val = this.value;
+          closeAllLists();
+          if (!val) { return false;}
+          currentFocus = -1;
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          this.parentNode.appendChild(a);
+          for (i = 0; i < arr.length; i++) {
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              b = document.createElement("DIV");
+              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].substr(val.length);
+              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              b.addEventListener("click", function(e) {
+                  inp.value = this.getElementsByTagName("input")[0].value;
+                  closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+      });
+      inp.addEventListener("keydown", function(e) {
+          var x = document.getElementById(this.id + "autocomplete-list");
+          if (x) x = x.getElementsByTagName("div");
+          if (e.keyCode == 40) {
+            currentFocus++;
+            addActive(x);
+          } else if (e.keyCode == 38) { 
+            currentFocus--;
+            addActive(x);
+          } else if (e.keyCode == 13) {
+            e.preventDefault();
+            if (currentFocus > -1) {
+              if (x) x[currentFocus].click();
+            }
+          }
+      });
+      function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+      function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+      document.addEventListener("click", function (e) {
+          closeAllLists(e.target);
+      });
+    }
+    
+    var countries = ["Madgaon","Ratnagiri","Chhatrapati Shivaji Maharaj (T)","Diva","Sawantwadi Road","Madgaon","Mangalore","Ernakulam","Dadar","Puducherry","Pune","Lokmanya Tilak (T)","Coimbatore","Karaikkal","Bhubaneswar","Tirunelveli","Bhusaval","Pandharpur","Chhatrapati Shahu Maharaj (T)","Darbhanga","Mysuru","Gorakhpur","Gondia","Dhanbad","Kolhapur","Ahmedabad","Amritsar","Chhapra","Jaynagar","Banaras","Jammu Tawi","Veraval","Bhagat ki kothi","Bhuj","Lucknow","Gwalior","Devlali","Itarsi","Itarsi", "Prayagraj Chheoki","Igatpuri","Wardha","Barauni","Ratlam","Katni"];
+    
+    autocomplete(document.getElementById("myInput"), countries);
+    </script>
+{% endblock body %}
