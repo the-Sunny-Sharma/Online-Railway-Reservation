@@ -15,6 +15,8 @@ urlpatterns = [
     path("admin",views.admin,name="admin"),
     path("view_ticket",views.view_ticket,name="view_ticket"),
     path("confirmBooking",views.confirmBooking,name="confirmBooking"),
+    path("cancelTicket",views.cancelTicket,name="cancelTicket"),
+    path("avlTrain",views.avlTrain,name="avlTrain"),
 ]
 admin.site.site_header = "SYN Admin"
 admin.site.site_title = "SYN Admin Portal"

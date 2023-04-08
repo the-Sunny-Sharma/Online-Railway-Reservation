@@ -11,8 +11,19 @@ import random
 
 # Create your views here.
 def index(request):
+    if request.method == "POST":
+        source=request.POST['source']
+        destination=request.POST['destination']
+        results=Chart.objects.filter(train_source=source).values()
+        template = loader.get_template('avlTrain.html')
+        context = {
+            'avlTrain': results,
+        }
+        return HttpResponse(template.render(context, request))
     return render(request, 'index.html')
 
+def avlTrain(request):
+    return render(request,"avlTrain.html")
 
 def view_schedule(request):
     schedule=Chart.objects.all()
@@ -144,7 +155,11 @@ def confirmBooking(request):
 
 
 def view_pnr(request):
-    return render("view_pnr.html")
+    return render(request,"view_pnr.html")
+
+@login_required(login_url="login_user")
+def cancelTicket(request):
+    return render(request,"cancelTicket.html")
 
 
 # https://www.railmitra.com/trains

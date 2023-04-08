@@ -13,7 +13,8 @@
                 </div>
                 <div class="col-md-7 col-md-offset-1">
                     <div class="booking-form">
-                        <form methpd='post' action='/'>
+                        <form method='post' action='/'>
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -155,11 +156,10 @@
             <ul class="nav flex-column">
                 <li class="nav-item mb-2"><a href="/bookTicket" class="nav-link p-0 text-muted">Book Ticket</a></li>
                 <li class="nav-item mb-2"><a href="/view_ticket" class="nav-link p-0 text-muted">View Ticket</a></li>
-                <li class="nav-item mb-2"><a href="/cancel_ticket" class="nav-link p-0 text-muted">Cancel Ticket</a></li>
+                <li class="nav-item mb-2"><a href="/cancelTicket" class="nav-link p-0 text-muted">Cancel Ticket</a></li>
                 <li class="nav-item mb-2"><a href="/pnr_status" class="nav-link p-0 text-muted">PNR status</a></li>
                 <li class="nav-item mb-2"><a href="/view_schedule" class="nav-link p-0 text-muted">Train Schedule</a></li>
                 <li class="nav-item mb-2"><a href="/view_train" class="nav-link p-0 text-muted">Train Chart</a></li>
-
             </ul>
         </div>
         <div class="col">
