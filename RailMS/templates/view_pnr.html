@@ -1,6 +1,45 @@
+
 {% extends 'base.html' %}
-{% block title %}View PNR{% endblock title %}
+{% block title %}VIEW PNR{% endblock title %}
 {% block body %}
-
-
-  {% endblock body %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Train Number</th>
+      <th scope="col">PNR Number</th>
+      <th scope="col">Passenger 1 name</th>
+      <th scope="col">age</th>
+      <th scope="col">seat</th>
+      <th scope="col">Passenger 2 name</th>
+      <th scope="col">age</th>
+      <th scope="col">seat</th>
+      <th scope="col">Passenger 3 name</th>
+      <th scope="col">age</th>
+      <th scope="col">seat</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Date of Journey</th>
+    </tr>
+  </thead>
+  {% for i in pnrStatus %}
+  <tbody>
+    <tr>
+      <td>{{i.trainNumber}}</td>
+      <td>{{i.pnr_number}}</td>
+      <td>{{i.pass1name}}</td>
+      <td>{{i.pass1age}}</td>
+      <td>{{i.pass1berth_opt}}</td>
+      <td>{{i.pass2name}}</td>
+      <td>{{i.pass2age}}</td>
+      <td>{{i.pass2berth_opt}}</td>
+      <td>{{i.pass3name}}</td>
+      <td>{{i.pass3age}}</td>
+      <td>{{i.pass3berth_opt}}</td>
+      <td>{{i.source}}</td>
+      <td>{{i.destination}}</td>
+      <td>{{i.dateJourney}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock body %}

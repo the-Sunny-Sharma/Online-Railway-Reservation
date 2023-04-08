@@ -9,15 +9,36 @@
     <div class="content">
         <form method="post" action="/bookTicket">
             {% csrf_token %}
+            <div class="input-box">
+                <span class="details">Select Train</span>
+                <select name="trainNumber">
+                    <option value=""></option>
+                    <option value="02018">02018-DEHRADUN SHT SPL</option>
+                    <option value="02081">02081-JP SIKR PASS SPL</option>
+                    <option value="02082">02082-SIKR-JP PASSENGER</option>
+                    <option value="02087">02087-JP CUR PASS SPL</option>
+                    <option value="02088">02088-CUR JP PASSENGER</option>
+                    <option value="02089">02089-SIKR CUR PASS SPL</option>
+                    <option value="02090">02090-CUR SIKR PASS SPL</option>
+                    <option value="02260">02260-HWH CSMT SPL</option>
+                    <option value="02409">02409-PUNE UDN SHT SP</option>
+                    <option value="02410">02410-PUNE SHATABDI SPECIAL</option>
+                    <option value="02501">02501-AGTL NDLS AC SPL</option>
+                    <option value="02533">02533-PUSHPAK EXP SPLL</option>
+                    <option value="02779">02779-GOA EXPRESS</option>
+                    <option value="05715">05715-GARIB NAWAAZ RAKE</option>
+
+                </select>
+            </div>
             <p>Passenger1</p>
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Enter the Name</span>
-                    <input type="text" name="pass1name" placeholder="Ex. Sunny Yogendra Sharma" required>
+                    <input type="text" name="pass1name" placeholder="Ex. Sunny Yogendra Sharma">
                 </div>
                 <div class="input-box">
                     <span class="details">Age (in years)</span>
-                    <input type="number" name="pass1age" placeholder="Ex. 19" max="150" required>
+                    <input type="number" name="pass1age" placeholder="Ex. 19" max="150">
                 </div>
                 <div class="input-box">
                     <span class="details">Berth Choice</span>
@@ -37,11 +58,11 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Enter the Name</span>
-                    <input type="text" name="pass2name" placeholder="">
+                    <input type="text" name="pass2name" placeholder="Ex. Amey Sawant">
                 </div>
                 <div class="input-box">
                     <span class="details">Age (in years)</span>
-                    <input type="number" name="pass2age" placeholder="" max="150" >
+                    <input type="number" name="pass2age" placeholder="Ex. 21" max="150" >
                 </div>
                 <div class="input-box">
                     <span class="details">Berth Choice</span>
@@ -61,11 +82,11 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Enter the Name</span>
-                    <input type="text" name="pass3name" placeholder="">
+                    <input type="text" name="pass3name" placeholder="Ex. Gaural Rathod">
                 </div>
                 <div class="input-box">
                     <span class="details">Age (in years)</span>
-                    <input type="number" name="pass3age" placeholder="" max="150" >
+                    <input type="number" name="pass3age" placeholder="Ex. 21" max="150" >
                 </div>
                 <div class="input-box">
                     <span class="details">Berth Choice</span>
@@ -83,24 +104,23 @@
                 <br><br>
                 <span class="details">Starting Point</span>
                 <select name="source">
-                    <option value="LTT">LTT-Lokmanya Tilak Terminus</option>
-                    <option value="BS">BS-Vasai</option>
-                    <option value="sl">SL</option>
-                    <option value="lb">LB</option>
-                    <option value="mb">MB</option>
-                    <option value="ub">UB</option>
+                    <option value="LTT-Lokmanya Tilak Terminus">LTT-Lokmanya Tilak Terminus</option>
+                    <option value="BS-Vasai">BS-Vasai</option>
+                    <option value="BO-Borivali">BO-Borivali</option>
+                    <option value="PN-Panvel">PN-Panvel</option>
+                    <option value="B-Bandra">B-Bandra</option>
+                    <option value="C-Churchgate">C-Churchgate</option>
                 </select>
             </div>
             <div class="input-box">
                 <br><br>
                 <span class="details">Destination</span>
                 <select name="destination">
-                    <option value="LTT">LTT-Lokmanya Tilak Terminus</option>
-                    <option value="BO">BO-Borivali</option>
-                    <option value="sl">SL</option>
-                    <option value="lb">LB</option>
-                    <option value="mb">MB</option>
-                    <option value="ub">UB</option>
+                    <option value="BS-Vasai">BS-Vasai</option>
+                    <option value="BO-Borivali">BO-Borivali</option>
+                    <option value="PN-Panvel">PN-Panvel</option>
+                    <option value="B-Bandra">B-Bandra</option>
+                    <option value="C-Churchgate">C-Churchgate</option>
                 </select>
             </div>
             <div class="form-outline mb-4">

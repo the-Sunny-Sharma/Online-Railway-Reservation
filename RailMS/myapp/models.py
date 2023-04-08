@@ -12,14 +12,15 @@ class Contact(models.Model):
         
 class BookTicket(models.Model):
       pnr_number=models.IntegerField(primary_key=True)
+      trainNumber=models.CharField(max_length=20)
       pass1name=models.CharField(max_length=100)
       pass1age=models.CharField(max_length=10)
       pass1berth_opt=models.CharField(max_length=100,default='SL')
       pass2name=models.CharField(max_length=100,blank=True, null=True)
-      pass2age=models.CharField(max_length=100,blank=True,null=True)
+      pass2age=models.CharField(max_length=10,blank=True,null=True)
       pass2berth_opt=models.CharField(max_length=100,blank=True,null=True)
       pass3name=models.CharField(max_length=100,blank=True,null=True)
-      pass3age=models.CharField(max_length=100,blank=True,null=True)
+      pass3age=models.CharField(max_length=10,blank=True,null=True)
       pass3berth_opt=models.CharField(max_length=100,blank=True,null=True)
       source=models.CharField(max_length=30,blank=True,null=True)
       destination=models.CharField(max_length=30,blank=True,null=True)
@@ -36,7 +37,6 @@ class Register(models.Model):
       phone=models.CharField(max_length=15)
       username=models.CharField(max_length=50,primary_key=True)
       password=models.CharField(max_length=50)
-
       def __str__(self):
             return self.username
 
