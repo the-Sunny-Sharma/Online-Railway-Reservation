@@ -53,7 +53,7 @@ def bookTicket(request):
         pass1age=request.POST.get('pass1age')
         pass1berth_opt=request.POST.get('pass1berth_opt')
         pass2name=request.POST.get('pass2name')
-        pass2age=request.POST.get('pass2gage')
+        pass2age=request.POST.get('pass2age')
         pass2berth_opt=request.POST.get('pass2berth_opt')
         pass3name=request.POST.get('pass3name')
         pass3age=request.POST.get('pass3age')
