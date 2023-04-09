@@ -17,6 +17,7 @@ urlpatterns = [
     path("confirmBooking",views.confirmBooking,name="confirmBooking"),
     path("cancelTicket",views.cancelTicket,name="cancelTicket"),
     path("avlTrain",views.avlTrain,name="avlTrain"),
+    # path("list_cancel.html",views.list_cancel,name=list_cancel),
 ]
 admin.site.site_header = "SYN Admin"
 admin.site.site_title = "SYN Admin Portal"

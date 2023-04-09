@@ -11,6 +11,7 @@ class Contact(models.Model):
             return self.name
         
 class BookTicket(models.Model):
+      username=models.CharField(max_length=50,default="")
       pnr_number=models.IntegerField(primary_key=True)
       trainNumber=models.CharField(max_length=20)
       pass1name=models.CharField(max_length=100)

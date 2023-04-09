@@ -22,28 +22,13 @@ def index(request):
         return HttpResponse(template.render(context, request))
     return render(request, 'index.html')
 
+
 def avlTrain(request):
     return render(request,"avlTrain.html")
 
 def view_schedule(request):
     schedule=Chart.objects.all()
     return render(request, 'view_schedule.html', {'key1':schedule})
-
-
-@login_required(login_url="login_user")
-def pnr_status(request):
-    if request.method == "POST":
-        pnrNumber=request.POST['pnrNumber']
-        mydata = BookTicket.objects.filter(pnr_number=pnrNumber).values()
-        template = loader.get_template('view_pnr.html')
-        context = {
-            'pnrStatus': mydata,
-        }
-        return HttpResponse(template.render(context, request))
-        # data=BookTicket.objects.all()
-        # return render(request,'view_pnr.html',{'pnrStatus':data})
-    return render(request, 'pnr_status.html')
-
 
 def contact(request):
     if request.method == "POST":
@@ -54,41 +39,6 @@ def contact(request):
         contact.save()
         messages.success(request, 'Thank you your response is been sent. We\'ll get in touch soon.')
     return render(request, 'contact.html')
-
-
-@login_required(login_url="login_user")
-def bookTicket(request):
-    if request.method == "POST":
-        pnr_number=random.randint(1000000000,9999999999)
-        pass1name=request.POST.get('pass1name')
-        pass1age=request.POST.get('pass1age')
-        pass1berth_opt=request.POST.get('pass1berth_opt')
-        pass2name=request.POST.get('pass2name')
-        pass2age=request.POST.get('pass2age')
-        pass2berth_opt=request.POST.get('pass2berth_opt')
-        pass3name=request.POST.get('pass3name')
-        pass3age=request.POST.get('pass3age')
-        pass3berth_opt=request.POST.get('pass3berth_opt')
-        source=request.POST.get('source')
-        destination=request.POST.get('destination')
-        dateJourney=request.POST.get('dateJourney')
-        trainNumber=request.POST.get('trainNumber')
-        bookTicket = BookTicket(trainNumber=trainNumber,dateJourney=dateJourney,destination=destination,source=source,pnr_number=pnr_number,pass1name=pass1name,pass1age=pass1age,pass1berth_opt=pass1berth_opt,pass2name=pass2name,pass2age=pass2age,pass2berth_opt=pass2berth_opt,pass3name=pass3name,pass3age=pass3age,pass3berth_opt=pass3berth_opt)
-        bookTicket.save()
-        Context={'pnr_number':pnr_number}
-        messages.success(request, 'Thank you your response is been sent.')
-        return render(request,'confirmBooking.html',Context)
-    return render(request,'bookTicket.html')
-
-    
-@login_required(login_url="login_user")
-def view_ticket(request):
-  mydata = BookTicket.objects.filter(User).values()
-  template = loader.get_template('template.html')
-  context = {
-    'mymembers': mydata,
-  }
-  return HttpResponse(template.render(context, request))
 
 
 def register(request):
@@ -127,9 +77,49 @@ def login_user(request):
     return render(request,"login_user.html")
 
 
-def logout_user(request):
-    logout(request)
-    return redirect('home')
+@login_required(login_url="login_user")
+def pnr_status(request):
+    if request.method == "POST":
+        pnrNumber=request.POST['pnrNumber']
+        mydata = BookTicket.objects.filter(pnr_number=pnrNumber).values()
+        template = loader.get_template('view_pnr.html')
+        context = {
+            'pnrStatus': mydata,
+        }
+        return HttpResponse(template.render(context, request))
+    return render(request, 'pnr_status.html')
+
+
+def view_pnr(request):
+    return render(request,"view_pnr.html")
+
+
+@login_required(login_url="login_user")
+def bookTicket(request):
+    if request.method == "POST":
+        current_user = request.user
+        username=current_user.username
+        pnr_number=random.randint(1000000000,9999999999)
+        pass1name=request.POST.get('pass1name')
+        pass1age=request.POST.get('pass1age')
+        pass1berth_opt=request.POST.get('pass1berth_opt')
+        pass2name=request.POST.get('pass2name')
+        pass2age=request.POST.get('pass2age')
+        pass2berth_opt=request.POST.get('pass2berth_opt')
+        pass3name=request.POST.get('pass3name')
+        pass3age=request.POST.get('pass3age')
+        pass3berth_opt=request.POST.get('pass3berth_opt')
+        source=request.POST.get('source')
+        destination=request.POST.get('destination')
+        dateJourney=request.POST.get('dateJourney')
+        trainNumber=request.POST.get('trainNumber')
+        bookTicket = BookTicket(username=username,trainNumber=trainNumber,dateJourney=dateJourney,destination=destination,source=source,pnr_number=pnr_number,pass1name=pass1name,pass1age=pass1age,pass1berth_opt=pass1berth_opt,pass2name=pass2name,pass2age=pass2age,pass2berth_opt=pass2berth_opt,pass3name=pass3name,pass3age=pass3age,pass3berth_opt=pass3berth_opt)
+        bookTicket.save()
+        Context={'pnr_number':pnr_number}
+        messages.success(request, 'Thank you your response is been sent.')
+        return render(request,'confirmBooking.html',Context)
+    return render(request,'bookTicket.html')
+
 
 
 def view_train(request):
@@ -144,22 +134,47 @@ def view_schedule(request):
 def admin(request):
     return render(request,"http://127.0.0.1:8000/admin")
 
-
+@login_required(login_url="login_user")
 def view_ticket(request):
-    istekler = Contact.objects.all()
-    return render(request, 'view_ticket.html', locals())
+    current_user = request.user
+    username=current_user.username
+    mydata = BookTicket.objects.filter(username=username).values()
+    template = loader.get_template('view_ticket.html')
+    context = {
+            'myticket': mydata,
+        }
+    return HttpResponse(template.render(context, request))
+
 
 
 def confirmBooking(request):
     return redirect('home')
 
 
-def view_pnr(request):
-    return render(request,"view_pnr.html")
+
 
 @login_required(login_url="login_user")
 def cancelTicket(request):
-    return render(request,"cancelTicket.html")
+    if request.method == "POST":
+        pnr_number=request.POST['pnr_number']
+        candata = BookTicket.objects.filter(pnr_number=pnr_number).delete()
+        # candata.delete()
+        return redirect('cancelTicket')
+        # template = loader.get_template('list_cancel.html')
+        # context = {
+        #     'pnrStatus': candata,
+        # }
+        # return HttpResponse(template.render(context, request))
+    return render(request, 'cancelTicket.html')
 
+# @login_required(login_url="login_user")
+# def lsit_cancel(request):
+#     if request.method == "POST":
+
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')
 
 # https://www.railmitra.com/trains

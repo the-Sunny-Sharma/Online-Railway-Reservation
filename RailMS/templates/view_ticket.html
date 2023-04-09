@@ -1,19 +1,41 @@
-{% comment %} {% extends 'base.html' %}
+{% extends 'base.html' %}
 {% block title %}YOUR TICKETS{% endblock title %}
 {% block body %}
-
-{% endblock body %} {% endcomment %}
-
-{# yonetim/templates/list.html #}
-{% load render_table from django_tables2 %}
-{% load static %}
-<!doctype html>
-<html>
-    <head>
-        <link rel="stylesheet" href="{% static 
-'ticket/static/css/screen.css' %}" />
-    </head>
-    <body>
-        {% render_table istekler %}
-    </body>
-</html>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">PNR Number</th>
+      <th scope="col">Train Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">age</th>
+      <th scope="col">Name</th>
+      <th scope="col">age</th>
+      <th scope="col">Name</th>
+      <th scope="col">age</th>
+      <th scope="col">Source</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Date of Journey</th>
+    </tr>
+  </thead>
+  {% for i in myticket %}
+  <tbody>
+    <tr>
+      <td>{{i.pnr_number}}</td>
+      <td>{{i.trainNumber}}</td>
+      <td>{{i.pass1name}}</td>
+      <td>{{i.pass1age}}</td>
+      {% comment %} <td>{{i.pass1berth_opt}}</td> {% endcomment %}
+      <td>{{i.pass2name}}</td>
+      <td>{{i.pass2age}}</td>
+      {% comment %} <td>{{i.pass2berth_opt}}</td> {% endcomment %}
+      <td>{{i.pass3name}}</td>
+      <td>{{i.pass3age}}</td>
+      {% comment %} <td>{{i.pass3berth_opt}}</td> {% endcomment %}
+      <td>{{i.source}}</td>
+      <td>{{i.destination}}</td>
+      <td>{{i.dateJourney}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock body %}
